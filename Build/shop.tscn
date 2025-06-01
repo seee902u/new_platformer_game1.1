@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://cni2xq45sxeuo"]
+
+[ext_resource type="Texture2D" uid="uid://b3bl2ric6bevm" path="res://oak_woods_v1.0/decorations/shop_anim.png" id="1_lpta5"]
+[ext_resource type="PackedScene" uid="uid://bnutn3wfxgpbm" path="res://scn/light/lantern.tscn" id="2_jxx1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxx1l"]
+size = Vector2(94, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhfrg"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(0, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndq8e"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(118, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83exo"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(236, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n27ny"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(354, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r1qa"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(472, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmvai"]
+atlas = ExtResource("1_lpta5")
+region = Rect2(590, 0, 118, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khgxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhfrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndq8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83exo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n27ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r1qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmvai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxx1l"]
+radius = 46.0
+
+[node name="Shop" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_jxx1l")
+
+[node name="Shop" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shop"]
+position = Vector2(-1, -19)
+sprite_frames = SubResource("SpriteFrames_khgxt")
+autoplay = "default"
+frame_progress = 0.0738074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop"]
+shape = SubResource("CircleShape2D_jxx1l")
+
+[node name="Lantern" parent="Shop" instance=ExtResource("2_jxx1l")]
+position = Vector2(49, 15)
+scale = Vector2(0.1375, 0.133543)
+
+[node name="Lantern2" parent="Shop" instance=ExtResource("2_jxx1l")]
+position = Vector2(-47, 16)
+scale = Vector2(0.13125, 0.124272)
